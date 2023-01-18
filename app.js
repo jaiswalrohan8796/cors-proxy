@@ -5,6 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
+    const userAgent = req.get('user-agent');
+    res.header("User-Agent", userAgent)
     res.header("Access-Control-Allow-Origin", "*");
     next();
 });
